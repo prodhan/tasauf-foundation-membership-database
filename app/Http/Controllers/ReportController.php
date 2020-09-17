@@ -34,7 +34,7 @@ class ReportController extends Controller
     {
         $input = $request->all();
         $query = YearlyCollection::whereBetween('year', [$input['from_year'], $input['to_year']]);
-        if($input['member_id']){
+        if($input['member_id'] !=''){
             $query->where('member_id', $input['member_id']);
         }
         $collections = $query->get();
