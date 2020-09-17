@@ -41,12 +41,17 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-
+                                    @can('new-collection')
                                     <a class="dropdown-item" href="{{url('new-collection', $member->id)}}">Make Collection</a>
+                                    @endcan
+                                    @can('edit member')
                                     <a class="dropdown-item" href="{{ route('members.edit', $member->id) }}">Edit</a>
+                                        @endcan
+                                        @can('delete member')
                                     {!! Form::open(['method' => 'DELETE', 'route' => ['members.destroy', $member->id] ]) !!}
                                     {!! Form::submit('Delete', ['class' => 'dropdown-item']) !!}
                                     {!! Form::close() !!}
+                                        @endcan
                                 </div>
                             </div>
 
