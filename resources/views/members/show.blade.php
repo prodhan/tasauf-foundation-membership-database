@@ -1,7 +1,6 @@
-{{-- \resources\views\users\create.blade.php --}}
 @extends('layouts.master')
 
-@section('title', $data->name.'\'s Profile')
+@section('title', $member->name.'\'s Profile')
 
 @section('content')
 
@@ -14,20 +13,19 @@
                     <div class="card-two">
                         <header>
                             <div class="avatar">
-                                <img src='{{asset("uploads/$data->photo")}}' alt="{{$data->name}}" />
+                                <img src='{{asset("uploads/$member->photo")}}' alt="{{$member->name}}" />
                             </div>
                         </header>
 
-                        <h3>{{strtoupper($data->name)}}</h3>
+                        <h3>{{strtoupper($member->name)}}</h3>
                         <div class="desc">
-                            {{strtoupper($data->designation)}}
-                            <center>Associated with <b> {{$totalclass}} </b>Class/Sections</center>
+                            {{strtoupper($member->designation)}}
                         </div>
 
                         <div class="contacts">
-                            <a href="{{route('teachers.edit', $data->id) }}" title="Edit"><i class="fa fa-pencil-square-o"></i></a>
-                            <a href="callto:{{$data->phone}}"><i class="fa fa-phone"></i></a>
-                            <a href="mailto:{{$data->email}}"><i class="fa fa-envelope"></i></a>
+                            <a href="{{route('members.edit', $member->id) }}" title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                            <a href="callto:{{$member->mobile}}"><i class="fa fa-phone"></i></a>
+                            <a href="mailto:{{$member->email}}"><i class="fa fa-envelope"></i></a>
                             <div class="clear"></div>
                         </div>
 
@@ -40,62 +38,104 @@
 
         <div class="row form-group">
             <div class="col-md-4">Name</div>
-            <div class="col-md-8"> {{ $data->name }}</div>
+            <div class="col-md-8"> {{ $member->name }}</div>
         </div>
 
         <div class="row form-group">
             <div class="col-md-4">Designation</div>
-            <div class="col-md-8"> {{  $data->designation }}</div>
+            <div class="col-md-8"> {{  $member->designation }}</div>
         </div>
 
         <div class="row form-group">
             <div class="col-md-4">Date of Birth</div>
-            <div class="col-md-8"> {{$data->birthday }}</div>
+            <div class="col-md-8"> {{$member->dob }}</div>
         </div>
 
         <div class="row form-group">
-            <div class="col-md-4">Gender</div>
-            <div class="col-md-8"> {{ $data->sex }}</div>
+            <div class="col-md-4">Occupation</div>
+            <div class="col-md-8"> {{ $member->occupation }}</div>
         </div>
 
         <div class="row form-group">
-            <div class="col-md-4">Religion</div>
-            <div class="col-md-8"> {{ $data->religion}}</div>
+            <div class="col-md-4">Organization name</div>
+            <div class="col-md-8"> {{ $member->org_name}}</div>
         </div>
 
         <div class="row form-group">
-            <div class="col-md-4">Blood Group</div>
-            <div class="col-md-8"> {{$data->blood_group }}</div>
+            <div class="col-md-4">NID</div>
+            <div class="col-md-8"> {{$member->nid }}</div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-4">TIN</div>
+            <div class="col-md-8"> {{$member->tin }}</div>
         </div>
 
         <div class="row form-group">
             <div class="col-md-4">Address</div>
-            <div class="col-md-8"> {{$data->address }}</div>
+            <div class="col-md-8"> {{$member->address }}</div>
         </div>
 
         <div class="row form-group">
             <div class="col-md-4">Mobile No</div>
-            <div class="col-md-8"> {{$data->phone }}</div>
+            <div class="col-md-8"> {{$member->mobile }}</div>
         </div>
         <div class="row form-group">
             <div class="col-md-4">E-mail</div>
-            <div class="col-md-8">{{ $data->email }}</div>
+            <div class="col-md-8">{{ $member->email }}</div>
         </div>
         <div class="row form-group">
-            <div class="col-md-4">Joining Date</div>
-            <div class="col-md-8">{{  $data->joining_date }}</div>
+            <div class="col-md-4">Membership Date</div>
+            <div class="col-md-8">{{  $member->membership_date }}</div>
         </div>
+        <hr>
+        <h3 align="center">Transactions</h3>
+        <hr>
+        <div class="row">
 
-        <div class="row form-group">
-            <div class="col-md-4">National ID</div>
-            <div class="col-md-8"> {{  $data->nid }}</div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped" id="bills">
+
+                    <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Date</th>
+                        <th>For</th>
+                        <th>Amount</th>
+                        <th>Method</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    @foreach ($collections as $collection)
+                        <tr>
+                            <td>{{$loop->index+1}}</td>
+                            <td>{{ $collection->date }}</td>
+                            <td>{{ date('F', mktime(0, 0, 0, $collection->month, 10)) }} - {{$collection->year}}  {{$collection->head}}</td>
+                            <td>{{ $collection->amount }}</td>
+                            <td>{{ $collection->method }}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+
+                </table>
+            </div>
         </div>
-
-        {!! DNS1D::getBarcodeHTML($data->phone, "C128") !!}
-
 
 
 
     </div>
+
+@endsection
+
+@section('custom-js')
+    <script>
+        $(document).ready(function () {
+            $('#bills').DataTable();
+        });
+
+
+    </script>
+
 
 @endsection

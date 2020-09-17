@@ -27,4 +27,8 @@ class Member extends Model
         'address',
         'remarks',
     ];
+    /**
+     * @var mixed
+     */
+    private $id;
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Collection;
 use App\Member;
 use App\YearlyCollection;
 use Illuminate\Http\Request;
@@ -97,7 +98,8 @@ class MemberController extends Controller
      */
     public function show(Member $member)
     {
-        return view('members.show', compact('member'));
+        $collections = Collection::where('member_id', $member->id)->get();
+        return view('members.show', compact('member', 'collections'));
     }
 
     /**
