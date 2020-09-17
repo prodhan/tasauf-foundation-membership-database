@@ -7,19 +7,16 @@
             <ul id="sidebarnav">
                 <li class="nav-devider"></li>
                 <li class="nav-label">Home</li>
-                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard <span class="label label-rouded label-primary pull-right">2</span></span></a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="index.html">Ecommerce </a></li>
-                        <li><a href="index1.html">Analytics </a></li>
-                    </ul>
+                <li> <a class=" " href="{{url('/')}}" aria-expanded="false"><i class="fa fa-tachometer"></i> Dashboard</a>
+
                 </li>
                 <li class="nav-label">Apps</li>
-                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Menu 1</span></a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="{{url('/')}}">Compose</a></li>
 
-                    </ul>
-                </li>
+                <li> <a class="" href="{{url('members')}}" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu"> Members</span></a></li>
+
+                <li> <a class="" href="{{url('collections')}}" aria-expanded="false"><i class="fa fa-money"></i><span class="hide-menu"> Collections</span></a></li>
+
+                <li> <a class="" href="#" aria-expanded="false"><i class="fa fa-bar-chart-o"></i><span class="hide-menu"> Report</span></a></li>
 
 
 

@@ -23,11 +23,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/', 'ProductsController@index')->name('home');
-
 Route::resource('users', 'UserController');
-
 Route::resource('roles', 'RoleController');
-
 Route::resource('permissions', 'PermissionController');
-
 Route::resource('products', 'ProductsController');
+
+Route::resource('members', 'MemberController');
+Route::resource('collections', 'CollectionController');
+Route::get('new-collection/{id}', 'CollectionController@make_new');
+

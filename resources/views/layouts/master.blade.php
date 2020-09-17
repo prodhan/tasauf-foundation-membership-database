@@ -27,6 +27,7 @@
     <!-- Custom CSS -->
     <link href="{{asset('admin/css/helper.css')}}" rel="stylesheet">
     <link href="{{asset('admin/css/style.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="ttps://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
     <!--[if lt IE 9]>
@@ -115,20 +116,9 @@
     <!-- Page wrapper  -->
     <div class="page-wrapper">
         <!-- Bread crumb -->
-        <div class="row page-titles">
-            <div class="col-md-5 align-self-center">
-                <h3 class="text-primary">
-                    @if(View::hasSection('bar'))
-                        @yield('bar')
-                        {{--{{config('app.name')}}--}}
-                    @else
-                        {{config('app.name')}}
-                </h3>
-                @endif
+        <br>
 
-            </div>
 
-        </div>
         <!-- End Bread crumb -->
         <!-- Container fluid  -->
         <div class="container-fluid">
@@ -158,6 +148,9 @@
 <script src="{{asset('admin/js/lib/sticky-kit-master/dist/sticky-kit.min.js')}}"></script>
 <!--Custom JavaScript -->
 <script src="{{asset('admin/js/scripts.js')}}"></script>
+<!--Datatabel JavaScript -->
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 
 @yield('custom-js')
 
