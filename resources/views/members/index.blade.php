@@ -43,7 +43,6 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 
                                     <a class="dropdown-item" href="{{url('new-collection', $member->id)}}">Make Collection</a>
-                                    <a class="dropdown-item" href="{{url('view-collection', $member->id)}}">View Payments</a>
                                     <a class="dropdown-item" href="{{ route('members.edit', $member->id) }}">Edit</a>
                                     {!! Form::open(['method' => 'DELETE', 'route' => ['members.destroy', $member->id] ]) !!}
                                     {!! Form::submit('Delete', ['class' => 'dropdown-item']) !!}

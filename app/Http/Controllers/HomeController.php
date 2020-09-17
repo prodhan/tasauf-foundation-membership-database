@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Member;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('layouts.master');
+        $members = Member::pluck('name', 'id');
+        return view('reports.index', compact('members'));
     }
 }

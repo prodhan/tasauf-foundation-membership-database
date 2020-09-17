@@ -16,7 +16,7 @@
 
                 <li> <a class="" href="{{url('collections')}}" aria-expanded="false"><i class="fa fa-money"></i><span class="hide-menu"> Collections</span></a></li>
 
-                <li> <a class="" href="#" aria-expanded="false"><i class="fa fa-bar-chart-o"></i><span class="hide-menu"> Report</span></a></li>
+                <li> <a class="" href="{{url('reports')}}" aria-expanded="false"><i class="fa fa-bar-chart-o"></i><span class="hide-menu"> Report</span></a></li>
 
 
 

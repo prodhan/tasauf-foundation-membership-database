@@ -27,10 +27,10 @@
         <div class="row form-group">
             <div class="col-md-4">{{ Form::label('designation', 'Designation') }}</div>
             <div class="col-md-8"> {{ Form::select('designation', array(
-        'Chairman '=> 'Chairman',
-        'Vice Chairperson '=> 'Vice Chairperson',
-        'General Secretary '=> 'General Secretary',
-        'Director '=> 'Director',
+        'Chairman'=> 'Chairman',
+        'Vice Chairperson'=> 'Vice Chairperson',
+        'General Secretary'=> 'General Secretary',
+        'Director'=> 'Director',
         'General Member' => 'General Member',
         'Associate Member' => 'Associate Member',
         'Assistant Member' => 'Assistant Member',
