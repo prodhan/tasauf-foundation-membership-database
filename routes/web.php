@@ -36,4 +36,5 @@ Route::get('reports', 'ReportController@index');
 Route::post('reports-bydate', 'ReportController@reports_by_date');
 Route::post('reports-byyear', 'ReportController@reports_by_year');
 Route::post('reports-by-member', 'ReportController@reports_by_member');
+Route::post('reports-by-month', 'ReportController@member_report_by_month');
 

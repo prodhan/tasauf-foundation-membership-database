@@ -1,5 +1,6 @@
 @extends('layouts.print_master')
 @section('main-content')
+    @php($total = 0)
     <h2 align="center">Tasauf Foundation</h2>
     <p align="center">House #354, (2nd Floor), Road # 27, Mohakhali DOHS, Dhaka, 1206</p>
     <h4 align="center">Membership fees Collection Report:</h4>
@@ -26,8 +27,14 @@
                 <td>{{ date('F', mktime(0, 0, 0, $collection->month, 10)) }} - {{$collection->year}}  {{$collection->head}}</td>
                 <td>{{ $collection->amount }}</td>
                 <td>{{ $collection->method }}</td>
+                @php($total += $collection->amount)
             </tr>
         @endforeach
+        <tr>
+            <td colspan="5">Total</td>
+            <td>{{$total}}</td>
+            <td></td>
+        </tr>
         </tbody>
     </table>
 

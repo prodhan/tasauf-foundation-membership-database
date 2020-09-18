@@ -102,7 +102,30 @@
             </div>
         </div>
 
+    <hr>
+
+    <h2><i class="fa fa-users"></i> Monthly Membership Report</h2>
+
+    {!! Form::open(array('url'=> 'reports-by-month', 'class'=>'form-horizontal', 'target'=>'_blank')) !!}
+
+    <div class="row form-horizontal">
+
+        <div class="col-md-3">
+            <label for="">Select Month</label>
+        </div>
+        <div class="col-md-3">
+            {{ Form::selectMonth('month', \Carbon\Carbon::now(), array('class' => 'form-control')) }}
+        </div>
+        <div class="col-md-4"></div>
+
+
+        <div class="col-md-2">
+
+            {{ Form::submit('Search', array('class' => 'btn btn-primary  pull-right')) }}
+            {!! Form::close() !!}
+        </div>
     </div>
+
 
 
     </div>

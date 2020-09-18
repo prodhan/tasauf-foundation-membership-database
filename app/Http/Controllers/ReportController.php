@@ -52,4 +52,11 @@ class ReportController extends Controller
         return view('reports.by_member', compact('members'));
 
     }
+
+    public function member_report_by_month(Request $request){
+        $input = $request->all();
+        $query = Member::whereMonth('membership_date', '=', $input['month']);
+        $members = $query->get();
+        return view('reports.by_member', compact('members'));
+    }
 }
