@@ -17,6 +17,7 @@
         <tr>
             <th>SL</th>
             <th>ID</th>
+            <th>Year</th>
             <th>Name</th>
             <th>Designation</th>
             <th>Jan</th>
@@ -40,6 +41,7 @@
             <tr>
                 <td>{{$loop->index+1}}</td>
                 <td>{{ $collection->member_id }}</td>
+                <td>{{ $collection->year }}</td>
                 <td>{{ $collection->member->name }}</td>
                 <td>{{ $collection->member->designation }}</td>
                 <td>{{ check_empty($collection->jan) }}</td>
