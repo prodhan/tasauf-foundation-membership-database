@@ -3,7 +3,7 @@
     @php($total = 0)
     <h2 align="center">Tasauf Foundation</h2>
     <p align="center">House #354, (2nd Floor), Road # 27, Mohakhali DOHS, Dhaka, 1206</p>
-    <h4 align="center">Membership fees Collection Report:</h4>
+    <h4 align="center">Membership fees Collection Report: From {{$from_date}} To {{$to_date}}</h4>
     <hr>
     <table class="table table-bordered table-striped">
         <thead>

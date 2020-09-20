@@ -2,7 +2,7 @@
 @section('main-content')
     <h2 align="center">Tasauf Foundation</h2>
     <p align="center">House #354, (2nd Floor), Road # 27, Mohakhali DOHS, Dhaka, 1206</p>
-    <h4 align="center">Membership Report:</h4>
+    <h4 align="center">Membership Report: @isset($from_date) From {{$from_date}}@endisset @isset($to_date) To {{$to_date}} @endisset @isset($month) {{ date("F", mktime(0, 0, 0, $month, 1)) }} @endisset @isset($year) - {{$year}} @endisset </h4>
     <hr>
     <table class="table table-bordered table-striped">
         <thead>

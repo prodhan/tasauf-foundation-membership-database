@@ -111,12 +111,14 @@
     <div class="row form-horizontal">
 
         <div class="col-md-3">
-            <label for="">Select Month</label>
+
         </div>
         <div class="col-md-3">
             {{ Form::selectMonth('month', \Carbon\Carbon::now(), array('class' => 'form-control')) }}
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            {{ Form::selectYear('year', 2010,2025,date('Y'), array('class' => 'form-control')) }}
+        </div>
 
 
         <div class="col-md-2">
@@ -125,6 +127,10 @@
             {!! Form::close() !!}
         </div>
     </div>
+
+        <hr>
+
+        <h2><i class="fa fa-users"></i> Print All Membership Report <a href="{{url('get-all-members')}}" target="_blank" class="btn btn-outline-primary"> <i class="fa fa-print"></i> Print</a> </h2>
 
 
 

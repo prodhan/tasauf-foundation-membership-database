@@ -22,41 +22,54 @@ class ReportController extends Controller
     public function reports_by_date(Request $request)
     {
         $input = $request->all();
-        $query = Collection::whereBetween('date', [$input['from_date'], $input['to_date']]);
+        $from_date = $input['from_date'];
+        $to_date = $input['to_date'];
+        $query = Collection::whereBetween('date', [$from_date, $to_date]);
         if($input['member_id']){
             $query->where('member_id', $input['member_id']);
         }
         $collections = $query->get();
-        return view('reports.by_date', compact('collections'));
+        return view('reports.by_date', compact('collections', 'from_date', 'to_date'));
 
     }
     public function reports_by_year(Request $request)
     {
         $input = $request->all();
-        $query = YearlyCollection::whereBetween('year', [$input['from_year'], $input['to_year']]);
+        $from_year = $input['from_year'];
+        $to_year = $input['to_year'];
+        $query = YearlyCollection::whereBetween('year', [$from_year, $to_year]);
         if($input['member_id'] !=''){
             $query->where('member_id', $input['member_id']);
         }
         $collections = $query->get();
-        return view('reports.by_year', compact('collections'));
+        return view('reports.by_year', compact('collections', 'from_year', 'to_year'));
 
     }
     public function reports_by_member(Request $request)
     {
         $input = $request->all();
-        $query = Member::whereBetween('membership_date', [$input['from_date'], $input['to_date']]);
+        $from_date = $input['from_date'];
+        $to_date = $input['to_date'];
+        $query = Member::whereBetween('membership_date', [$from_date, $to_date]);
         if($input['designation']){
             $query->where('designation', $input['designation']);
         }
         $members = $query->get();
-        return view('reports.by_member', compact('members'));
+        return view('reports.by_member', compact('members', 'from_date', 'to_date'));
 
     }
 
     public function member_report_by_month(Request $request){
         $input = $request->all();
-        $query = Member::whereMonth('membership_date', '=', $input['month']);
+        $month = $input['month'];
+        $year = $input['year'];
+        $query = Member::whereMonth('membership_date', '=', $month)->whereYear('membership_date', '=', $year);
         $members = $query->get();
+        return view('reports.by_member', compact('members', 'month', 'year'));
+    }
+
+    public function get_all_members(){
+        $members = Member::all();
         return view('reports.by_member', compact('members'));
     }
 }

@@ -10,7 +10,7 @@
     @endphp
     <h2 align="center">Tasauf Foundation</h2>
     <p align="center">House #354, (2nd Floor), Road # 27, Mohakhali DOHS, Dhaka, 1206</p>
-    <h4 align="center">Membership fees Collection Yearly Report:</h4>
+    <h4 align="center">Membership fees Collection Yearly Report: {{$from_year}} - {{$to_year}}</h4>
     <hr>
     <table class="table table-bordered table-striped">
         <thead>
