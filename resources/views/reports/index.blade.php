@@ -111,7 +111,7 @@
     <div class="row form-horizontal">
 
         <div class="col-md-3">
-
+            <label for="">Select Month</label>
         </div>
         <div class="col-md-3">
             {{ Form::selectMonth('month', \Carbon\Carbon::now(), array('class' => 'form-control')) }}
