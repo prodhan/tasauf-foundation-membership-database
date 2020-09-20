@@ -34,7 +34,7 @@
                             {!! Form::submit('Delete', ['class' => 'btn-sm btn-danger pull-left']) !!}
                             {!! Form::close() !!}
                             @endhasrole
-
+                            <a href="{{url('invoice', $collection->id)}}" target="_blank" class="btn-sm btn-primary"> <i class="fa fa-print"></i> Print</a>
                         </td>
                     </tr>
                 @endforeach

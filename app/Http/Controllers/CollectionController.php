@@ -54,7 +54,10 @@ class CollectionController extends Controller
             $bug=$e->getMessage();
         }
         if($bug==0){
-            return redirect('/members')->with('success', 'New Collection has been added');
+            if (isset($input['invoice']))
+                return view('reports.invoice', compact('data'));
+            else
+                return redirect('/members')->with('success', 'New Collection has been added');
         }
         else
         {

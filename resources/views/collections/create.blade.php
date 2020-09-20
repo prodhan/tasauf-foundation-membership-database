@@ -63,11 +63,14 @@
             <div class="col-md-6">
                 {{ Form::hidden('member_id', $member->id) }}
                 {{ Form::hidden('user_id', \Illuminate\Support\Facades\Auth::id()) }}
+                <p style="color:darkgreen">Print Invoice?
+                {{ Form::checkbox('invoice', 1, false) }} </p>
 {{--                {{ Form::hidden('refer_by', $patient->refer_by) }}--}}
             </div>
             <div class="col-md-6">
+
                 {{ Form::reset('Clear', array('class'=> 'btn btn-warning')) }}
-                {{ Form::submit('Add', array('class' => 'btn btn-primary')) }}</div>
+                {{ Form::submit('Make Collection', array('class' => 'btn btn-primary')) }}</div>
         </div>
 
         {!! Form::close() !!}

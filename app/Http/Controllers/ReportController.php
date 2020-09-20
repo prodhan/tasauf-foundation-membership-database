@@ -72,4 +72,11 @@ class ReportController extends Controller
         $members = Member::all();
         return view('reports.by_member', compact('members'));
     }
+
+    public function invoice($id){
+        $data = Collection::findOrFail($id);
+        return view('reports.invoice', compact('data'));
+    }
+
+
 }
