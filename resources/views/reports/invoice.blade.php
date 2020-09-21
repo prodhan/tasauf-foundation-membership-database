@@ -27,9 +27,8 @@
                 <td>{{$data->amount}}/-</td>
             </tr>
 
-
             <tr>
-                <td colspan="2" align="right">Total</td>
+                <td colspan="2" align="right">Total: {{ucwords(to_word($data->amount))}} Taka Only</td>
                 <td>{{$data->amount}}/-</td>
             </tr>
             </tbody>
