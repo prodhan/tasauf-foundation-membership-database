@@ -92,7 +92,7 @@
         <h3 align="center">Transactions</h3>
         <hr>
         <div class="row">
-
+@can('report menu')
             <div class="table-responsive">
                 <table class="table table-bordered table-striped" id="bills">
 
@@ -120,6 +120,7 @@
 
                 </table>
             </div>
+            @endcan
         </div>
 
 
