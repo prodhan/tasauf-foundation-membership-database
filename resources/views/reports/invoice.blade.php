@@ -4,7 +4,7 @@
 
 @php($c=1)
 
-        <h2 align="center">Tasauf Foundation</h2>
+        <h2 align="center"><img src="{{asset('admin/images/logo-pi.png')}}" alt="homepage" class="dark-logo" /> Tasauf Foundation</h2>
         <p align="center">House #354, (2nd Floor), Road # 27, Mohakhali DOHS, Dhaka, 1206</p>
         <h4 align="center">Money Receipt</h4>
         <hr>
@@ -38,8 +38,11 @@
         <br>
         <br>
         <div class="row">
-            <div class="col-md-6 pull-left"><p>Prepared By </p></div>
-            <div class="col-md-6 pull-right"><p align="right">Authorised By</p></div>
+            <div class="col-md-4 pull-left"><p>Prepared By {{\Illuminate\Support\Facades\Auth::user()->name}} </p></div>
+            <div class="col-md-4 text-center"><p>Checked By </p></div>
+            <div class="col-md-4 pull-right">
+                <p align="right">Authorised By <img src="{{asset('admin/images/signature.png')}}" alt="homepage" width="100px" height="40px" /></p>
+            </div>
         </div>
 
 

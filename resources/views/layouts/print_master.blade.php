@@ -23,7 +23,7 @@
 <div class="container">
 @yield('main-content')
 
-<footer align="center">Powered By <a href=https://www.pigeon-soft.com/"">Pigeon Soft</a></footer>
+{{--<footer align="center">Checked By </footer>--}}
 </div>
 
 @yield('custom-js')
