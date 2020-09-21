@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="col-lg-12 col-lg-offset-1">
-
+@can('report menu')
     <h2><i class="fa fa-calculator"></i> Membership fees Collection Report</h2>
 
     {!! Form::open(array('url'=> 'reports-bydate', 'class'=>'form-horizontal', 'target'=>'_blank')) !!}
@@ -133,7 +133,7 @@
         <h2><i class="fa fa-users"></i> Print All Membership Report <a href="{{url('get-all-members')}}" target="_blank" class="btn btn-outline-primary"> <i class="fa fa-print"></i> Print</a> </h2>
 
 
-
+@endcan
     </div>
 
 @endsection
