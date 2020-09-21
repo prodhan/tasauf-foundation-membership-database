@@ -16,9 +16,9 @@
     @endphp
     <h2 align="center">Tasauf Foundation</h2>
     <p align="center">House #354, (2nd Floor), Road # 27, Mohakhali DOHS, Dhaka, 1206</p>
-    <h4 align="center">Membership fees Collection Yearly Report: {{$from_year}} - {{$to_year}}</h4>
+    <h4 align="center">Membership fees Collection Yearly Report: {{$from_year}} - {{$to_year}} <button id="exporttable" class="btn-sm btn-primary"> Export</button></h4>
     <hr>
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped" id="htmltable">
         <thead>
         <tr>
             <th>SL</th>
@@ -70,4 +70,27 @@
         </tbody>
     </table>
 
+@endsection
+@section('custom-js')
+    <script src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1569818907/jquery.table2excel.min.js"></script>
+    <script>
+        $(function() {
+            $("#exporttable").click(function(e){
+                var table = $("#htmltable");
+                if(table && table.length){
+                    $(table).table2excel({
+                        exclude: ".noExl",
+                        name: "Yearly Report",
+                        filename: "Yearly_Report" + new Date().toISOString().replace(/[\-\:\.]/g, "") + ".xls",
+                        fileext: ".xls",
+                        exclude_img: true,
+                        exclude_links: true,
+                        exclude_inputs: true,
+                        preserveColors: false
+                    });
+                }
+            });
+
+        });
+    </script>
 @endsection
