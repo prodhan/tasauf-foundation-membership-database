@@ -20,7 +20,7 @@
     <link href="{{asset('admin/css/lib/bootstrap/bootstrap.min.css')}}" rel="stylesheet">
 </head>
 <body>
-<div class="container">
+<div class="container-fluid">
 @yield('main-content')
 
 {{--<footer align="center">Checked By </footer>--}}
