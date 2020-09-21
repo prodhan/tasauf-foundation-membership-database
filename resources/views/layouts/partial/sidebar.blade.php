@@ -11,12 +11,15 @@
 
                 </li>
                 <li class="nav-label">Apps</li>
-
+                @can('member menu')
                 <li> <a class="" href="{{url('members')}}" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu"> Members</span></a></li>
-
+                @endcan
+                @can('collection menu')
                 <li> <a class="" href="{{url('collections')}}" aria-expanded="false"><i class="fa fa-money"></i><span class="hide-menu"> Collections</span></a></li>
-
+                @endcan
+                @can('report menu')
                 <li> <a class="" href="{{url('reports')}}" aria-expanded="false"><i class="fa fa-bar-chart-o"></i><span class="hide-menu"> Report</span></a></li>
+                @endcan
 
 
 
