@@ -3,7 +3,7 @@
     @php
     function check_empty($data){
     if($data === null)
-        return 'Due';
+        return '---';
     else
         return $data;
     }
