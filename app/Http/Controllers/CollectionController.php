@@ -20,7 +20,7 @@ class CollectionController extends Controller
      */
     public function index()
     {
-        $collections = Collection::limit(200)->get();
+        $collections = Collection::all();
         return view('collections.index', compact('collections'));
     }
 
