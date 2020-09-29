@@ -15,6 +15,10 @@
                     <th>For</th>
                     <th>Amount</th>
                     <th>Operations</th>
+                    @hasrole('Admin')
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    @endhasrole
                 </tr>
                 </thead>
 
@@ -28,14 +32,20 @@
                         <td>{{ $collection->amount }}</td>
 
                         <td>
-
+                            <a href="{{url('invoice', $collection->id)}}" target="_blank" class="btn-sm btn-primary"> <i class="fa fa-print"></i> Print</a>
+                        </td>
                             @hasrole('Admin')
+                        <td>
+                            <a class="dropdown-item" href="{{ route('collections.edit', $collection->id) }}">Edit</a>
+                        </td>
+                        <td>
+
                             {!! Form::open(['method' => 'DELETE', 'route' => ['collections.destroy', $collection->id] ]) !!}
                             {!! Form::submit('Delete', ['class' => 'btn-sm btn-danger pull-left']) !!}
                             {!! Form::close() !!}
                             @endhasrole
-                            <a href="{{url('invoice', $collection->id)}}" target="_blank" class="btn-sm btn-primary"> <i class="fa fa-print"></i> Print</a>
                         </td>
+
                     </tr>
                 @endforeach
                 </tbody>

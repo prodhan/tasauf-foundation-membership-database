@@ -85,7 +85,7 @@ class CollectionController extends Controller
      */
     public function edit(Collection $collection)
     {
-        //
+        return view('collections.edit', compact('collection'));
     }
 
     /**
@@ -95,9 +95,28 @@ class CollectionController extends Controller
      * @param  \App\Collection  $collection
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Collection $collection)
+    public function update(Request $request, $id)
     {
-        //
+        $collection  = Collection::findOrFail($id);
+        $this->update_yearly_sheet($collection->member_id, $collection->year, $collection->month, null);
+        $input=$request->all();
+        $this->update_yearly_sheet($collection->member_id, $input['year'], $input['month'], $input['amount']);
+        try {
+            $collection->update($input);
+//            return $input;
+            $bug=0;
+        }
+        catch(\Exception $e){
+            $bug=$e->getCode();
+        }
+        if($bug==0){
+            return redirect('/collections')->with('success', 'Information has been updated!');
+        }
+        else
+        {
+            return redirect()->back()->with('error', 'Something went wrong!')->withInput();
+        }
+
     }
 
     /**
